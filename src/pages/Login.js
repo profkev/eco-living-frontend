@@ -10,7 +10,7 @@ const Login = () => {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
-  const baseURL = process.env.REACT_APP_API_BASE_URL;
+  const baseURL = process.env.REACT_APP_API_BASE_URL || 'https://eco-living-backend.onrender.com';
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,8 +21,12 @@ const Login = () => {
     try {
       const response = await axios.post(`${baseURL}/api/users/login`, formData);
       setMessage('Login successful!');
+
+      // Store token in localStorage
+      localStorage.setItem('token', response.data.token);
+
       navigate('/'); // Redirect to Home
-      console.log(response.data);
+      console.log('User logged in:', response.data);
     } catch (error) {
       setMessage(error.response?.data?.message || 'Something went wrong');
       console.error('Error:', error);
