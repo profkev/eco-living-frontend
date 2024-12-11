@@ -11,7 +11,8 @@ const Register = () => {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
-  const baseURL = process.env.REACT_APP_API_BASE_URL; // Base URL from environment variables
+  const baseURL = process.env.REACT_APP_API_BASE_URL || 'https://eco-living-backend.onrender.com';
+   // Base URL from environment variables
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
