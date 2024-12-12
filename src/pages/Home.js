@@ -21,8 +21,12 @@ const Home = () => {
         <Link to="/carbon-footprint" className="text-blue-500 hover:underline">
           Track Carbon Footprint
         </Link>
+        <Link to="/Recommendations" className="text-blue-500 hover:underline">
+          Recommendations
+        </Link>
       </div>
     </div>
+    
   );
 };
 

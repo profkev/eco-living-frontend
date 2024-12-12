@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
 import Goals from './pages/Goals'; // Import Goals
+import Recommendations from './pages/Recommendations';
 import CarbonFootprint from './pages/CarbonFootprint';
 
 
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/goals" element={<Goals />} />
+          <Route path="/recommendations" element={<Recommendations />} />
           <Route path="/carbon-footprint" element={<CarbonFootprint />} /> 
         </Routes>
       </div>
