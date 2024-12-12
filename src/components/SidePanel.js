@@ -23,6 +23,12 @@ const SidePanel = () => {
     localStorage.removeItem('token');
     setIsAuthenticated(false);
     navigate('/login'); // Redirect to login page
+    setIsMenuOpen(false); // Close menu
+  };
+
+  const handleLinkClick = () => {
+    // Close the menu on link click
+    setIsMenuOpen(false);
   };
 
   return (
@@ -52,6 +58,7 @@ const SidePanel = () => {
             <li>
               <Link
                 to="/"
+                onClick={handleLinkClick}
                 className="flex items-center hover:bg-gray-800 px-4 py-2 rounded text-lg transition-all"
               >
                 Home
@@ -62,6 +69,7 @@ const SidePanel = () => {
                 <li>
                   <Link
                     to="/login"
+                    onClick={handleLinkClick}
                     className="flex items-center hover:bg-gray-800 px-4 py-2 rounded text-lg transition-all"
                   >
                     Login
@@ -70,6 +78,7 @@ const SidePanel = () => {
                 <li>
                   <Link
                     to="/register"
+                    onClick={handleLinkClick}
                     className="flex items-center hover:bg-gray-800 px-4 py-2 rounded text-lg transition-all"
                   >
                     Register
@@ -90,6 +99,7 @@ const SidePanel = () => {
             <li>
               <Link
                 to="/goals"
+                onClick={handleLinkClick}
                 className="flex items-center hover:bg-gray-800 px-4 py-2 rounded text-lg transition-all"
               >
                 Manage Goals
@@ -98,6 +108,7 @@ const SidePanel = () => {
             <li>
               <Link
                 to="/carbon-footprint"
+                onClick={handleLinkClick}
                 className="flex items-center hover:bg-gray-800 px-4 py-2 rounded text-lg transition-all"
               >
                 Carbon Footprint
@@ -106,6 +117,7 @@ const SidePanel = () => {
             <li>
               <Link
                 to="/recommendations"
+                onClick={handleLinkClick}
                 className="flex items-center hover:bg-gray-800 px-4 py-2 rounded text-lg transition-all"
               >
                 Recommendations
@@ -114,6 +126,7 @@ const SidePanel = () => {
             <li>
               <Link
                 to="/challenges"
+                onClick={handleLinkClick}
                 className="flex items-center hover:bg-gray-800 px-4 py-2 rounded text-lg transition-all"
               >
                 Challenges
@@ -122,6 +135,7 @@ const SidePanel = () => {
             <li>
               <Link
                 to="/bonus"
+                onClick={handleLinkClick}
                 className="flex items-center hover:bg-gray-800 px-4 py-2 rounded text-lg transition-all"
               >
                 Bonus
@@ -130,6 +144,7 @@ const SidePanel = () => {
             <li>
               <Link
                 to="/community-groups"
+                onClick={handleLinkClick}
                 className="flex items-center hover:bg-gray-800 px-4 py-2 rounded text-lg transition-all"
               >
                 Community Groups
@@ -138,6 +153,7 @@ const SidePanel = () => {
             <li>
               <Link
                 to="/submit-feedback"
+                onClick={handleLinkClick}
                 className="flex items-center hover:bg-gray-800 px-4 py-2 rounded text-lg transition-all"
               >
                 Submit Feedback
@@ -146,6 +162,7 @@ const SidePanel = () => {
             <li>
               <Link
                 to="/view-feedback"
+                onClick={handleLinkClick}
                 className="flex items-center hover:bg-gray-800 px-4 py-2 rounded text-lg transition-all"
               >
                 View Feedback (Admin)
@@ -154,6 +171,7 @@ const SidePanel = () => {
             <li>
               <Link
                 to="/profile"
+                onClick={handleLinkClick}
                 className="flex items-center hover:bg-gray-800 px-4 py-2 rounded text-lg transition-all"
               >
                 Update Profile
