@@ -21,17 +21,26 @@ const Home = () => {
         <Link to="/carbon-footprint" className="text-blue-500 hover:underline">
           Track Carbon Footprint
         </Link>
-        <Link to="/Recommendations" className="text-blue-500 hover:underline">
+        <Link to="/recommendations" className="text-blue-500 hover:underline">
           Recommendations
         </Link>
         <Link to="/challenges" className="text-blue-500 hover:underline">
           Challenges
         </Link>
-
-        
+        <Link to="/bonus" className="text-blue-500 hover:underline">
+          Bonus
+        </Link>
+        <Link to="/community-groups" className="text-blue-500 hover:underline">
+          Community Groups
+        </Link>
+        <Link to="/submit-feedback" className="text-blue-500 hover:underline">
+          Submit Feedback
+        </Link>
+        <Link to="/view-feedback" className="text-blue-500 hover:underline">
+          View Feedback (Admin)
+        </Link>
       </div>
     </div>
-    
   );
 };
 
