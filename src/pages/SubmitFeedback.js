@@ -16,7 +16,7 @@ const SubmitFeedback = () => {
 
     try {
       await axios.post(
-        `${baseURL}/feedback`, // Use dynamic base URL
+        `${baseURL}/api/feedback`, // Use dynamic base URL
         { feedbackText },
         {
           headers: {
