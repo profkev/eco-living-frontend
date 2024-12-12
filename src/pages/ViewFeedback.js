@@ -5,10 +5,13 @@ const ViewFeedback = () => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [error, setError] = useState(null);
 
+  // Dynamically set the API base URL based on the environment
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/feedback', {
+        const response = await axios.get(`${API_BASE_URL}/api/feedback`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
@@ -21,7 +24,7 @@ const ViewFeedback = () => {
     };
 
     fetchFeedbacks();
-  }, []);
+  }, [API_BASE_URL]);
 
   return (
     <div className="p-4 bg-white shadow rounded max-w-2xl mx-auto mt-6">
