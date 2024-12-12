@@ -74,6 +74,60 @@ const Goals = () => {
     return 'bg-red-500';
   };
 
+  const getLatestGoal = () => goals[goals.length - 1] || { progress: 0, target: 1 };
+
+  const calculateTotalProgress = () => {
+    return goals.reduce((total, goal) => total + goal.progress, 0);
+  };
+
+  const calculateTotalTarget = () => {
+    return goals.reduce((total, goal) => total + goal.target, 0);
+  };
+
+  const renderBarChart = () => {
+    const latestGoal = getLatestGoal();
+    return (
+      <div className="mt-8 w-full max-w-md">
+        <h2 className="text-xl font-bold mb-4">Bar Chart (Latest Goal Progress)</h2>
+        <div className="flex flex-col gap-2">
+          <div>
+            <span>Progress:</span>
+            <div
+              className="h-4 bg-blue-500"
+              style={{ width: `${(latestGoal.progress / latestGoal.target) * 100}%` }}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const renderPieChart = () => {
+    const totalProgress = calculateTotalProgress();
+    const totalTarget = calculateTotalTarget();
+    const progressPercentage = (totalProgress / totalTarget) * 100 || 0;
+    const remainingPercentage = 100 - progressPercentage;
+
+    return (
+      <div className="mt-8 w-full max-w-md">
+        <h2 className="text-xl font-bold mb-4">Pie Chart (Overall Progress)</h2>
+        <div
+          className="relative w-40 h-40 rounded-full"
+          style={{
+            background: `conic-gradient(
+              green 0% ${progressPercentage}%,
+              gray ${progressPercentage}% 100%
+            )`,
+          }}
+        />
+        <div className="mt-4 text-sm">
+          <p><span className="text-green-500">●</span> Progress: {progressPercentage.toFixed(2)}%</p>
+          <p><span className="text-gray-500">●</span> Remaining: {remainingPercentage.toFixed(2)}%</p>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-100 p-6">
       <h1 className="text-3xl font-bold mb-4">Manage Your Goals</h1>
@@ -163,6 +217,8 @@ const Goals = () => {
           ))}
         </ul>
       </div>
+      {renderBarChart()}
+      {renderPieChart()}
     </div>
   );
 };

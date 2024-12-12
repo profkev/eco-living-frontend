@@ -4,6 +4,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
 import Goals from './pages/Goals'; // Import Goals
+import CarbonFootprint from './pages/CarbonFootprint';
+
 
 const App = () => {
   return (
@@ -13,7 +15,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/goals" element={<Goals />} /> 
+          <Route path="/goals" element={<Goals />} />
+          <Route path="/carbon-footprint" element={<CarbonFootprint />} /> 
         </Routes>
       </div>
     </Router>

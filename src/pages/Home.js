@@ -18,6 +18,9 @@ const Home = () => {
         <Link to="/goals" className="text-blue-500 hover:underline">
           Manage Goals
         </Link>
+        <Link to="/carbon-footprint" className="text-blue-500 hover:underline">
+          Track Carbon Footprint
+        </Link>
       </div>
     </div>
   );
