@@ -6,6 +6,9 @@ const SubmitFeedback = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
+  // Use environment variable or default to localhost
+  const baseURL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000/api';
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
@@ -13,7 +16,7 @@ const SubmitFeedback = () => {
 
     try {
       await axios.post(
-        'http://localhost:5000/api/feedback', // Base URL remains unchanged
+        `${baseURL}/feedback`, // Use dynamic base URL
         { feedbackText },
         {
           headers: {
